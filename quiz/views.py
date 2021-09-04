@@ -83,7 +83,7 @@ class QuestionsApiView(APIView):
         :return: FeatureTable data object
         """
         try:
-            return Questions_table.objects.get(quiz_id=quiz_id)
+            return list(Questions_table.objects.filter(quiz_id=quiz_id).values('quest_str'))
         except Questions_table.DoesNotExist:
             raise Http404
 
@@ -96,9 +96,11 @@ class QuestionsApiView(APIView):
                 print("insideif:::")
                 get_one_ques_list = self.get_object_id(quiz_id)
                 print("get_one", get_one_ques_list)
-                questions_list = Questions_tableSerializer(get_one_ques_list)
-                result = questions_list.data
-                response["Result"] = result
+                for i in get_one_ques_list:
+                    get_one_ques_list = i["quest_str"]
+                    questions_list = Questions_tableSerializer(get_one_ques_list)
+                    result = questions_list.data
+                    response["Result"] = result
             else:
                 print("insideelse::")
                 get_all_questions_lists = Questions_table.objects.all()
