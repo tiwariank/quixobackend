@@ -13,7 +13,7 @@ class Total_quizSerializer(serializers.ModelSerializer):
 class OptionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Options
-        fields = ['option_id', 'option_value1', 'option_value2', 'option_value3', 'option_value4', 'option_value5', 'optionThemeStyleCss']
+        fields = ['quiz_id','option_id', 'option_value1', 'option_value2', 'option_value3', 'option_value4', 'option_value5','correct_option', 'optionThemeStyleCss']
 
 
 class Questions_tableSerializer(serializers.ModelSerializer):

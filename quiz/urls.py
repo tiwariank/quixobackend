@@ -9,5 +9,5 @@ urlpatterns = [
     path('questions', QuestionsApiView.as_view(), name='total_questions'),
     path('question/<str:quiz_id>', QuestionsApiView.as_view(), name='total_questions'),
     path('options', OptionsApiView.as_view(), name='total_options'),
-    path('options/<str:option_id>', OptionsApiView.as_view(), name='total_options'),
+    path('options/<str:quiz_id>', OptionsApiView.as_view(), name='total_options'),
 ]

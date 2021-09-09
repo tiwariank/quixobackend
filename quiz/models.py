@@ -17,17 +17,20 @@ class Total_quiz(models.Model):
 
 
 class Options(models.Model):
+    quiz_id = models.ForeignKey(Total_quiz, on_delete=models.CASCADE)
     option_id = models.AutoField(primary_key=True)
     option_value1 = models.CharField(max_length=200, null=True, blank=True)
     option_value2 = models.CharField(max_length=200, null=True, blank=True)
     option_value3 = models.CharField(max_length=200, null=True, blank=True)
     option_value4 = models.CharField(max_length=200, null=True, blank=True)
     option_value5 = models.CharField(max_length=200, null=True, blank=True)
-    # correct_option = models.CharField(max_length=200, null=True, blank=True)
+    correct_option = models.CharField(max_length=200, null=True, blank=True)
     optionThemeStyleCss = models.CharField(max_length=200, null=True, blank=True)
+    # pub_date = models.DateTimeField(default=datetime.now, blank=True)
 
-    def __str__(self):
-        return "options"
+
+    # def __str__(self):
+    #     return (self.option_id )
 
 
 class Questions_table(models.Model):
@@ -39,8 +42,8 @@ class Questions_table(models.Model):
     questionThemeStyleCss = models.CharField(max_length=200, null=True, blank=True)
     pub_date = models.DateTimeField(default=datetime.now, blank=True)
 
-    def __str__(self):
-        return "questions"
+    # def __str__(self):
+    #     return self.quest_str
 
 
 
