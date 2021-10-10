@@ -11,9 +11,7 @@ class QuizModel(models.Model):
     pub_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return self.quiz
-
-        
+        return self.quiz        
 
 
 class QuestionModel(models.Model):
@@ -21,6 +19,7 @@ class QuestionModel(models.Model):
     quiz_id = models.ForeignKey(QuizModel, on_delete=models.CASCADE)
     question = models.TextField()
     question_type = models.CharField(max_length=20)
+    ans = models.TextField(blank=True,null=True)
     def __str__(self):
         return self.question
 
@@ -30,7 +29,7 @@ class OptionModel(models.Model):
     quiz_id = models.ForeignKey(QuizModel, on_delete=models.CASCADE)
     option = models.TextField()
     option_type = models.CharField(max_length=20)
-    ans = models.TextField()
+    
     def __str__(self):
         return self.option
 

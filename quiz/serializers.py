@@ -13,10 +13,10 @@ class Total_quizSerializer(serializers.ModelSerializer):
 class Questions_tableSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuestionModel
-        fields = ['question_id','quiz_id','question','question_type']
+        fields = ['question_id','quiz_id','question','question_type', 'ans',]
 
 
 class OptionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = OptionModel
-        fields = ['option_id', 'question_id', 'option', 'option_type', 'option_type']        
+        fields = ['option_id', 'question_id', 'option', 'option_type', 'quiz_id']        
