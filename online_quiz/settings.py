@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,11 +78,12 @@ WSGI_APPLICATION = 'online_quiz.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Quixxo',
-        'USER' : 'postgres',
-        'PASSWORD':'1234',
-        'HOST':'localhost'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quixxodev',
+        'USER' : 'admin',
+        'PASSWORD':'mypassword',
+        'HOST':'qu01.cygpolelfcgh.ap-south-1.rds.amazonaws.com',
+        'PORT': 3306
     }
 }
 
@@ -130,10 +132,10 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 # CORS_PREFLIGHT_MAX_AGE = 14400
 
 CORS_ORIGIN_WHITELIST = [
-    'http://192.168.1.36:3000']
+    'http://localhost:3000/']

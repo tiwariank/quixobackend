@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Total_quiz, Options, Questions_table
+from .models import QuizModel, QuestionModel, OptionModel
 
-admin.site.register((Total_quiz, Questions_table, Options))
+admin.site.register((QuizModel, QuestionModel, OptionModel))
