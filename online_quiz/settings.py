@@ -25,8 +25,6 @@ SECRET_KEY = 'django-insecure-u#k)lutdv(3ig)!%e$kap7bbguy*mo5oysv*a&mwe2=udjjab6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -38,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quiz',
+    'corsheaders',
     'rest_framework'
 ]
 
@@ -149,5 +148,10 @@ CORS_ALLOW_CREDENTIALS = True
 
 # CORS_PREFLIGHT_MAX_AGE = 14400
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000/']
+
+
+ALLOWED_HOSTS = ['*']
+
+
+
+
